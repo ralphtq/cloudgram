@@ -1,25 +1,14 @@
-export default {
-  collectCoverage: true,
-  collectCoverageFrom: [
-    `src/**/*.js`,
-    '!**/(node_modules|dist|local)/**',
-    '!src/js/icons/**/*.js',
-    '!src/js/editor/**/*.js',
-  ],
-  coverageThreshold: {
-    global: {
-      branches: 80,
-      functions: 80,
-      lines: 80,
-      statements: 80,
+module.exports = {
+    moduleFileExtensions: [
+        'js',
+        'ts',
+        'json',
+    ],
+    transform: {
+        '^.+\\.ts$': 'ts-jest',
     },
-  },
-  coverageReporters: ['json-summary', 'text', 'lcov'],
-  moduleNameMapper: {
-    "^url:(.*)+$": "$1",
-  },
-  transform: {
-    '^.+\\.js$': 'babel-jest',
-    '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$': 'jest-transform-stub',
-  },
-};
+    moduleNameMapper: {
+        "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+        "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
+}

@@ -1,0 +1,18 @@
+{
+  "parsed": {
+    "id": "slash_in_label",
+    "attributes": {},
+    "elements": [
+      {
+        "type": "node",
+        "id": "component",
+        "attributes": {
+          "label": "A/Slash"
+        },
+        "provider": "generic",
+        "service": "component"
+      }
+    ]
+  },
+  "errors": []
+}

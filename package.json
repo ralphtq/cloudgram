@@ -1,24 +1,16 @@
 {
   "name": "cloudgram",
-  "version": "1.6.0",
-  "type": "module",
+  "version": "1.7.0",
   "scripts": {
-    "test": "nyc jest",
-    "lint": "node_modules/.bin/prettier --write \"{src,tests,scripts}/**/*.js\"",
-    "dev": "rm -fr dev && parcel serve src/index.html src/embed.html --no-cache --dist-dir dev",
-    "build": "rm -fr dist && NODE_ENV=production parcel build src/index.html src/embed.html --no-cache --dist-dir dist",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "test": "jest src --env=jsdom",
+    "lint": "node_modules/.bin/prettier --write \"{src,scripts}/**/*.{ts,js}\"",
     "assets": "scripts/assets.js",
     "diagram": "scripts/generate_grammar_diagram.js",
     "patch": "yarn version --patch",
     "minor": "yarn version --minor",
-    "major": "yarn version --major",
-    "deploy": "scripts/deploy.sh"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "echo 'Pre-commit checks...' && exit 0",
-      "pre-commit": "pretty-quick --staged && yarn test && yarn run diagram"
-    }
+    "major": "yarn version --major"
   },
   "dependencies": {
     "@sentry/browser": "^6.1.0",
@@ -31,46 +23,30 @@
     "file-saver": "^2.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.6",
-    "@babel/preset-env": "^7.11.5",
-    "@parcel/optimizer-cssnano": "2.0.0-nightly.592",
-    "@parcel/optimizer-htmlnano": "2.0.0-nightly.592",
-    "@parcel/packager-css": "2.0.0-nightly.592",
-    "@parcel/packager-html": "2.0.0-nightly.592",
-    "@parcel/transformer-css": "2.0.0-nightly.592",
-    "@parcel/transformer-html": "2.0.0-nightly.592",
-    "@parcel/transformer-postcss": "2.0.0-nightly.592",
-    "@parcel/transformer-posthtml": "2.0.0-nightly.592",
-    "@parcel/transformer-sass": "2.0.0-nightly.592",
-    "@types/jest": "^26.0.14",
-    "axios": "^0.21.1",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^26.5.2",
-    "camelcase": "^6.1.0",
-    "core-js": "^3.6.5",
-    "fs-extra": "^9.1.0",
+    "@types/ace": "^0.0.47",
+    "@types/cytoscape": "^3.19.0",
+    "@types/cytoscape-dagre": "^2.3.0",
+    "@types/file-saver": "^2.0.4",
+    "@types/jest": "^27.0.3",
+    "@types/node": "^16.11.9",
+    "axios": "^0.24.0",
+    "camelcase": "^6.2.1",
+    "fs-extra": "^10.0.0",
     "glob": "^7.1.6",
     "glob-promise": "^3.4.0",
-    "husky": "^4.3.0",
-    "jest": "^26.4.2",
-    "jest-transform-stub": "^2.0.0",
-    "npm-run-all": "^4.1.5",
-    "nunjucks": "^3.2.2",
-    "nyc": "^15.1.0",
-    "parcel": "^2.0.0-beta.1",
-    "pino": "^6.7.0",
-    "pino-pretty": "^4.3.0",
-    "postcss": "^8.2.1",
-    "posthtml-include": "^1.5.0",
+    "jest": "^27.3.1",
+    "nunjucks": "^3.2.3",
+    "pino": "^7.3.0",
     "prettier": "^2.1.2",
     "pretty-quick": "^3.0.2",
     "regenerator-runtime": "^0.13.7",
     "sass": "^1.32.6",
     "tmp": "^0.2.1",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.3.2",
     "unzipper": "^0.10.11",
+    "vite": "^2.6.14",
+    "vite-plugin-package-version": "^1.0.2",
     "xml2js": "^0.4.23"
-  },
-  "resolutions": {
-    "node-forge": "0.10.0"
   }
 }

@@ -1,0 +1,16 @@
+{
+  "parsed": {
+    "id": "slash_in_quoted_id",
+    "attributes": {},
+    "elements": [
+      {
+        "type": "node",
+        "id": "compo/nent",
+        "attributes": {},
+        "provider": "generic",
+        "service": "component"
+      }
+    ]
+  },
+  "errors": []
+}

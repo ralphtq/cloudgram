@@ -1,12 +1,6 @@
 node_modules
-.nyc_output
-coverage
 .DS_Store
-package-lock.json
-public/bundle*
-.tmp
-.cache
 dist
-dev
-
-.parcel-cache
+dist-ssr
+*.local
+.env

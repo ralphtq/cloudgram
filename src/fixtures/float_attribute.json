@@ -1,0 +1,26 @@
+{
+  "parsed": {
+    "id": "float_attribute",
+    "attributes": {},
+    "elements": [
+      {
+        "type": "group",
+        "id": "vpc",
+        "attributes": {
+          "opacity": "0.1"
+        },
+        "elements": [
+          {
+            "type": "node",
+            "id": "load_balancer",
+            "service": "alb",
+            "provider": "aws",
+            "attributes": {},
+            "parent": "vpc"
+          }
+        ]
+      }
+    ]
+  },
+  "errors": []
+}

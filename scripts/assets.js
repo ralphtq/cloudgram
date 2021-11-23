@@ -90,12 +90,14 @@ const fromRemoteZip = async (sourceUrl, destDir) =>
 
 // utils for the assets generation pipeline
 const extractFilename = ({source, ...rest}) => ({...rest, source, filename: path.basename(source).toLowerCase()});
-const replacePatterns = patterns => ({filename, ...rest}) => ({
-  ...rest,
-  filename: patterns.length
-    ? patterns.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), filename)
-    : filename,
-});
+const replacePatterns =
+  patterns =>
+  ({filename, ...rest}) => ({
+    ...rest,
+    filename: patterns.length
+      ? patterns.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), filename)
+      : filename,
+  });
 const addTarget = ({provider, filename, ...rest}) => ({
   ...rest,
   filename,

@@ -1,0 +1,98 @@
+{
+  "parsed": {
+    "id": "complete",
+    "attributes": {
+      "direction": "lr"
+    },
+    "elements": [
+      {
+        "type": "node",
+        "id": "dns",
+        "service": "route53",
+        "provider": "aws",
+        "attributes": {}
+      },
+      {
+        "type": "node",
+        "id": "cf",
+        "service": "component",
+        "provider": "generic",
+        "attributes": {
+          "label": "CDN"
+        }
+      },
+      {
+        "type": "group",
+        "id": "vpc",
+        "attributes": {
+          "fill": "green"
+        },
+        "elements": [
+          {
+            "type": "node",
+            "id": "load_balancer",
+            "service": "loadBalancing",
+            "provider": "gcp",
+            "attributes": {},
+            "parent": "vpc"
+          },
+          {
+            "type": "group",
+            "id": "servers",
+            "attributes": {},
+            "parent": "vpc",
+            "elements": [
+              {
+                "type": "node",
+                "id": "server1",
+                "service": "node",
+                "provider": "k8s",
+                "attributes": {},
+                "parent": "servers"
+              },
+              {
+                "type": "node",
+                "id": "server2",
+                "service": "virtualMachine",
+                "provider": "azure",
+                "attributes": {},
+                "parent": "servers"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "edge",
+        "src": "dns",
+        "dst": "cf",
+        "deepLink": false,
+        "bidirectionalLink": false,
+        "attributes": {
+          "color": "blue",
+          "style": "dashed"
+        }
+      },
+      {
+        "type": "edge",
+        "src": "cf",
+        "dst": "load_balancer",
+        "deepLink": false,
+        "bidirectionalLink": false,
+        "attributes": {
+          "color": "blue",
+          "style": "dashed"
+        }
+      },
+      {
+        "type": "edge",
+        "src": "load_balancer",
+        "dst": "servers",
+        "deepLink": true,
+        "bidirectionalLink": false,
+        "attributes": {}
+      }
+    ]
+  },
+  "errors": []
+}
