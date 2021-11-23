@@ -35,8 +35,8 @@ const convertError = ({message, token, resyncedTokens}: IRecognitionException, t
     const lines = text.trimEnd().split(/\r\n|\r|\n/);
     startLine = lines.length;
     endLine = lines.length;
-    startColumn = lines.at(-1)?.length;
-    endColumn = lines.at(-1)?.length;
+    startColumn = lines ? lines[lines.length - 1].length : undefined;
+    endColumn = lines ? lines[lines.length - 1].length : undefined;
   }
 
   return {
