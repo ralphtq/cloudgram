@@ -12,6 +12,12 @@
     "minor": "yarn version --minor",
     "major": "yarn version --major"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "echo 'Pre-commit checks...' && exit 0",
+      "pre-commit": "pretty-quick --staged && yarn test && yarn run diagram"
+    }
+  },
   "dependencies": {
     "@sentry/browser": "^6.1.0",
     "@sentry/tracing": "^6.1.0",
@@ -47,6 +53,7 @@
     "unzipper": "^0.10.11",
     "vite": "^2.6.14",
     "vite-plugin-package-version": "^1.0.2",
-    "xml2js": "^0.4.23"
+    "xml2js": "^0.4.23",
+    "husky": "^4.3.0"
   }
 }

@@ -42,8 +42,8 @@ const arrowStyle = (arrow: boolean): cytoscape.Css.ArrowShape => (arrow ? 'trian
 export const getSourceArrowStyle = (e: cytoscape.EdgeSingular): cytoscape.Css.ArrowShape =>
   arrowStyle(e.data()?.attributes?.bidirectional || false);
 
-// @ts-ignore
 const getIcon = ({provider = 'generic', service = 'component'}: {provider?: string; service?: string}): string =>
+  // @ts-ignore
   iconMap[provider][service];
 export const getIconForNode = (e: cytoscape.NodeSingular): string => getIcon(e.data());
 
