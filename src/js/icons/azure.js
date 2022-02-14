@@ -68,7 +68,6 @@ import databaseMariadbServer from 'url:../../images/azure/database-mariadb-serve
 import databaseMigrationServices from 'url:../../images/azure/database-migration-services.svg';
 import databaseMysqlServer from 'url:../../images/azure/database-mysql-server.svg';
 import databasePostgresqlServer from 'url:../../images/azure/database-postgresql-server.svg';
-import ddosProtectionPlans from 'url:../../images/azure/ddos-protection-plans.svg';
 import devConsole from 'url:../../images/azure/dev-console.svg';
 import deviceProvisioningServices from 'url:../../images/azure/device-provisioning-services.svg';
 import deviceSecurityApple from 'url:../../images/azure/device-security-apple.svg';
@@ -101,7 +100,6 @@ import files from 'url:../../images/azure/files.svg';
 import firewallManager from 'url:../../images/azure/firewall-manager.svg';
 import folderBlank from 'url:../../images/azure/folder-blank.svg';
 import folderWebsite from 'url:../../images/azure/folder-website.svg';
-import frontDoors from 'url:../../images/azure/front-doors.svg';
 import ftp from 'url:../../images/azure/ftp.svg';
 import functionApps from 'url:../../images/azure/function-apps.svg';
 import gear from 'url:../../images/azure/gear.svg';
@@ -186,7 +184,6 @@ import resourceGraphExplorer from 'url:../../images/azure/resource-graph-explore
 import resourceGroupList from 'url:../../images/azure/resource-group-list.svg';
 import resourceGroups from 'url:../../images/azure/resource-groups.svg';
 import resourceLinked from 'url:../../images/azure/resource-linked.svg';
-import routeFilters from 'url:../../images/azure/route-filters.svg';
 import sapAzureMonitor from 'url:../../images/azure/sap-azure-monitor.svg';
 import scale from 'url:../../images/azure/scale.svg';
 import scheduler from 'url:../../images/azure/scheduler.svg';
@@ -313,7 +310,6 @@ export {
   databaseMigrationServices,
   databaseMysqlServer,
   databasePostgresqlServer,
-  ddosProtectionPlans,
   devConsole,
   deviceProvisioningServices,
   deviceSecurityApple,
@@ -346,7 +342,6 @@ export {
   firewallManager,
   folderBlank,
   folderWebsite,
-  frontDoors,
   ftp,
   functionApps,
   gear,
@@ -431,7 +426,6 @@ export {
   resourceGroupList,
   resourceGroups,
   resourceLinked,
-  routeFilters,
   sapAzureMonitor,
   scale,
   scheduler,

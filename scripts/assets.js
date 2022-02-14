@@ -152,6 +152,7 @@ const Azure = 'azure';
 const K8s = 'k8s';
 const GCP = 'gcp';
 const Generic = 'generic';
+const EDG = 'edg';
 
 // the following patterns in the form [regex, string replacement] allow for
 // customisation of asset names for each provider.
@@ -218,6 +219,8 @@ const gcpPatterns = [
 ];
 const genericPatterns = [];
 
+const edgPatterns = [];
+
 // custom provider functions to compute the name of the group a
 // service should belong from the name of the SVG file
 const awsComputeGroup = ({source, ...rest}) => ({
@@ -256,6 +259,12 @@ const gcpComputeGroup = ({source, ...rest}) => ({
   group: getParentDir(source, 1).toLowerCase().trim(),
 });
 const genericComputeGroup = ({source, ...rest}) => ({
+  ...rest,
+  source,
+  group: 'Generic',
+});
+
+const edgComputeGroup = ({source, ...rest}) => ({
   ...rest,
   source,
   group: 'Generic',
@@ -338,6 +347,19 @@ const config = {
         .then(extractFilename)
         .then(genericComputeGroup)
         .then(replacePatterns(genericPatterns))
+        .then(addTarget)
+        .then(addImportName)
+        .then(readContent)
+        .then(resizeContent),
+  },
+  [EDG]: {
+    fetch: targetDir => copyFromDir(path.join(assetsOverrideDir, 'edg'), targetDir),
+    filter: () => true, // keep all svg
+    prepare: filepath =>
+      Promise.resolve({provider: EDG, source: filepath})
+        .then(extractFilename)
+        .then(edgComputeGroup)
+        .then(replacePatterns(edgPatterns))
         .then(addTarget)
         .then(addImportName)
         .then(readContent)

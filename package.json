@@ -16,8 +16,8 @@
   },
   "husky": {
     "hooks": {
-      "commit-msg": "echo 'Pre-commit checks...' && exit 0",
-      "pre-commit": "pretty-quick --staged && yarn test && yarn run diagram"
+      "hide_commit-msg": "echo 'Pre-commit checks...' && exit 0",
+      "hide_pre-commit": "pretty-quick --staged && yarn test && yarn run diagram"
     }
   },
   "dependencies": {
